@@ -1,6 +1,7 @@
  
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { Button } from '../../Components/ui/Button'
 
 export function Sectoin1() {
   return (
@@ -44,13 +45,8 @@ export function Sectoin1() {
             An award-winning Prague-based indie game studio pushing the boundaries of narrative and serious games
           </p>
           
-          <Link
-            href="#"
-            className="inline-flex font-header-anton items-center mt-12 px-10 py-5 bg-[#2CFFA4] text-black rounded-[4px] rounded-br-[35px] hover:bg-[#20CC83] transition-colors"
-          >
-            OUR PROJECTS
-            <ArrowRight className="ml-2 h-5 w-5 -rotate-45 " />
-          </Link>
+       <Button text={"our projects"} className={" mt-14"} href="#" />
+
         </div>
       </div>
     </section>
