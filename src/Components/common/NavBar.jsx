@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom" 
 import { ChevronDown, Heart, Menu, ShoppingCart, User } from 'lucide-react'
 
-export function NavBar() {
+export  const NavBar = ()=> {
   return (
     <nav className=" containers font-secondary-unbounded absolute top-12 left-0 right-0 z-50 px-6 py-4">
       <div className="flex items-center justify-center lg:justify-start">
