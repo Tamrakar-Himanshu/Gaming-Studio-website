@@ -49,9 +49,9 @@ export default function Footer() {
          },
        }}
       className="containers px-4">
-        <div className=" flex gap-36">
+        <div className=" flex flex-wrap gap-20">
           {/* Company Info */}
-          <div className="space-y-6d">
+          <div className=" max-w-sm">
             <a href="/" className="text-2xl font-bold text-white flex items-center gap-2">
              <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/logo_light.svg" alt="" />
             </a>
@@ -87,7 +87,7 @@ export default function Footer() {
           </div>
 
           {/* Newsletter */}
-          <div className="">
+          <div className=" max-w-sm">
             <h3 className=" text-[16px] font-bold text-white">Newsletter</h3>
             <p className="text-sm mt-6">
               Get notified about updates and be the first to get early access to new episodes.
