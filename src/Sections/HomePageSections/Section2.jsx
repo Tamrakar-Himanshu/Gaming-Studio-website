@@ -12,7 +12,7 @@ export const Section2 = () => {
   const marqueContent = ["game design","art design","multiplatform development","game development"]
 
   return (
-    <section className=' relative bg-white h-s creen rounded-t-[70px] -mt-48 z-[20]'>
+    <section className=' relative bg-white rounded-t-[20px] md:rounded-t-[40px] lg:rounded-t-[70px] -mt-48 z-[20]'>
         <motion.div
           ref={ref}
           initial={"hidden"}
@@ -29,7 +29,7 @@ export const Section2 = () => {
               },
             },
           }}
-        className=' pt-32'>
+        className=' pt-20 lg:pt-32'>
           <Marquee delay={1}
           speed={123}
           direction='left'  
@@ -70,11 +70,11 @@ export const Section2 = () => {
     },
   }}
   transition={{ duration: 0.6, ease: "easeOut" }}
-  className="containers  "
+  className="  containers  "
 >
-  <div className="pt-16 sm:pt-24 lg:pt-32 flex flex-wrap">
+  <div className="pt-16 sm:pt-24 lg:pt-32 md:flex lg:flex lg:gap-0 md:gap-5">
     {/* Left Section */}
-    <div className="flex flex-col justify-start items-start w-full lg:w-5/12 pr-0 lg:pr-20 mb-10 lg:mb-0">
+    <div className="flex flex-col justify-start items-start lg:w-5/12 md:w-5/12 pr-0 lg:pr-20 mb-10 lg:mb-0">
       <div>
         <img
           src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h1_deco.png"
@@ -83,7 +83,7 @@ export const Section2 = () => {
         />
       </div>
       <div className="font-secondary-unbounded mt-6 lg:mt-10 space-y-6 lg:space-y-10">
-        <p className="text-[16px] sm:text-[18px] leading-6 lg:leading-8">
+        <p className="text-[16px] sm:text-[18px] leading-8">
           We develop immersive games that integrate advanced technology with exceptional storytelling,
           delivering engaging and inspiring experiences for players of all demographics.
         </p>
@@ -98,7 +98,7 @@ export const Section2 = () => {
           href="#"
         />
       </div>
-      <div className="mt-10 lg:mt-20">
+      <div className="mt-10 lg:mt-20 flex md:justify-start justify-center w-full">
         <img
           src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h2_img3.jpg"
           className="rounded-3xl max-w-full"
@@ -108,9 +108,9 @@ export const Section2 = () => {
     </div>
 
     {/* Right Section */}
-    <div className="flex flex-col w-full lg:w-7/12">
+    <div className="flex flex-col md:w-7/12 lg:w-7/12">
       <div className="flex items-center lg1:justify-center">
-        <h1 className="text-black font-header-anton leading-none relative z-10 md:text-[80px] lg:text-[100px] lg1:text-[140px]">
+        <h1 className="text-black font-header-anton leading-none relative z-10 text-[56px] md:text-[80px] lg:text-[100px] lg1:text-[140px] lg1:justify-center flex-wrap flex gap-x-7">
           <span className="block uppercase">Explore</span>
           <span
             className="block -mt-1 lg1:-mt-3"
@@ -124,19 +124,21 @@ export const Section2 = () => {
           </span>
         </h1>
       </div>
-      <div className="relative -mt-8 sm:-mt-14 w-full">
+      <div className="relative -mt-8 md:-mt-14 w-full">
         <img
           src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h2_img2.jpg"
           alt=""
           className="rounded-2xl max-w-full object-cover"
         />
-        <div className="absolute inset-0 -top-12 sm:-top-24 z-20">
-          <div className="absolute -right-40 lg1:-right-14">
+        <div className="absolute inset-0  md:-top-20 lg:-top-24 z-20 w-full">
+          <div className="absolute right-4 md:-right-4 lg:-right-4">
+            <div className=' w-full'>
             <img
               src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h2_img1.png"
               alt=""
-              className=" lg:w-[70%] lg1:w-full "
-            />
+              className=" w-[200px] sm:w-[240px] md:w-[280px] lg:w-[300px] lg1:w-full   "
+              />
+              </div>
           </div>
         </div>
         <div className="absolute inset-0">
