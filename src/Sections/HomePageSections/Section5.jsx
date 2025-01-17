@@ -48,13 +48,25 @@ export const Section5 = () => {
 
   return (
     <section className='relative bg-bg2 h-[110vh] rounded-t-[70px] z-[30] -mt-10 shadow-top'>
+       <div className=' absolute inset-0 left-60 bg-bg-svg bg-no-repeat z-[-1] '> </div> 
+       <div className='absolute inset-0 left-[75%] top-40 bg-bg-svg2 z-[-1] bg-no-repeat '></div>
       <motion.div 
-       initial={{ opacity: 0, y: 0 }}
-       animate={isInView ? { opacity: 1, y: 0 } : {}}
-       transition={{ duration: 0.6, ease: "easeOut" }}
+       ref={ref}
+       initial={"hidden"}
+       animate={isInView?"visible":"hidden"}
+       variants={{
+         hidden: { opacity: 0, y: 150 },
+         visible: { 
+           opacity: 1, 
+           y: 0,
+           transition: {
+             duration: 0.6,
+             ease: "easeOut",
+             staggerChildren: 0.2, // Stagger animations for child elements
+           },
+         },
+       }}
       className=' containers'>
-      <div className=' absolute inset-0 left-60 bg-bg-svg bg-no-repeat z-[-1] '> </div> 
-      <div className='absolute inset-0 left-[75%] top-40 bg-bg-svg2 z-[-1] bg-no-repeat '></div>
 
      
         <div className=' flex justify-center pt-32'>

@@ -1,11 +1,31 @@
 import { ArrowRight } from 'lucide-react'
-import React from 'react'
+import React, { useRef } from 'react'
 import { Button } from '../../Components/ui/Button'
+import { motion, useInView } from 'framer-motion'
 
 export const Section3 = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false,margin:"-200px" });
+  
   return (
     <section className=' relative bg-white rounded-t-[70px] border-black bo rder shadow-top z-[20]'> 
-      <div className=' containers'>
+      <motion.div
+       ref={ref}
+       initial={"hidden"}
+       animate={isInView?"visible":"hidden"}
+       variants={{
+         hidden: { opacity: 0, y: 150 },
+         visible: { 
+           opacity: 1, 
+           y: 0,
+           transition: {
+             duration: 0.6,
+             ease: "easeOut",
+             staggerChildren: 0.2, // Stagger animations for child elements
+           },
+         },
+       }}
+      className=' containers'>
       <div className=' pt-40 flex flex-grow flex-shrink w-full items-center  '>
         <div className=' flex flex-col justify-start items-start w-[41.66%] pr-20 '>
         <div className=' flex items-center justify-center'>
@@ -51,7 +71,7 @@ export const Section3 = () => {
 
         </div>
       </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

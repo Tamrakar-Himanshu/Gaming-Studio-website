@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { StickyScrollRevealDemo } from '../../Components/StickyScrollDemo'
 import { Crown, Image, Swords, Wand } from 'lucide-react'
 import { NextTabButton } from '../../Components/ui/NextTabButton'
 import { Button } from '../../Components/ui/Button'
+import { motion, useInView } from 'framer-motion'
 
 export const Section4 = () => {
+
+  
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
 
   const capabilities =  [
     {
@@ -35,7 +40,23 @@ export const Section4 = () => {
 
   return (
     <section className='relative bg-bg2 rounded-t-[70px] z-[30]'>
-      <div className=' containers '>
+      <motion.div
+       ref={ref}
+       initial={"hidden"}
+       animate={isInView?"visible":"hidden"}
+       variants={{
+         hidden: { opacity: 0, y: 150 },
+         visible: { 
+           opacity: 1, 
+           y: 0,
+           transition: {
+             duration: 0.6,
+             ease: "easeOut",
+             staggerChildren: 0.2, // Stagger animations for child elements
+           },
+         },
+       }}
+      className=' containers '>
         <div className='pt-16 flex items-start'>
           <div className=' flex flex-col space-y-10 w-[40%]'>
             {capabilities.map((capability)=> <CapabilitiesCard {...capability} /> )} 
@@ -67,7 +88,7 @@ export const Section4 = () => {
               </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

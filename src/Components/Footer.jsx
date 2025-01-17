@@ -1,16 +1,19 @@
-'use client'
-
 import {   ArrowUp } from 'lucide-react'
 import { Button } from "../Components/ui/Button" 
 import { NextTabButton } from "../Components/ui/NextTabButton" 
-import { useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import { motion, useAnimation, useInView } from 'framer-motion'
 
 
 export default function Footer() {
   const scrollToTop = () => {
+    console.log("inside scroll......");
+    
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false,margin:"-50px" });
 
   const controls = useAnimation();
 
@@ -28,8 +31,24 @@ export default function Footer() {
   }, [controls]);
 
   return (
-    <footer className="bg-bg3  rounded-t-[70px] text-subtle2 font-secondary-unbounded pt-20 relative">
-      <div className="containers mx-auto px-4">
+    <footer className="bg-bg3 -mt-20 shadow-top2 z-50 rounded-t-[70px] text-subtle2 font-secondary-unbounded pt-20 relative">
+      <motion.div
+       ref={ref}
+       initial={"hidden"}
+       animate={isInView?"visible":"hidden"}
+       variants={{
+         hidden: { opacity: 0, y: 150 },
+         visible: { 
+           opacity: 1, 
+           y: 0,
+           transition: {
+             duration: 0.6,
+             ease: "easeOut",
+             staggerChildren: 0.2, // Stagger animations for child elements
+           },
+         },
+       }}
+      className="containers px-4">
         <div className=" flex gap-36">
           {/* Company Info */}
           <div className="space-y-6d">
@@ -115,16 +134,16 @@ export default function Footer() {
             ))}
           </nav>
         </div>
-      </div>
+      </motion.div>
 
       {/* Scroll to Top Button */}
-      <Button
-        onclick={scrollToTop}
-        className="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-emerald-400 hover:bg-emerald-500 text-black"
+      <button
+        onClick={scrollToTop}
+        className=" fixed flex justify-center items-center bottom-8 right-8 w-16 h-16 rounded-full bg-primary hover:bg-primary-hover text-black"
         aria-label="Scroll to top"
       >
-        <ArrowUp className="w-6 h-6" />
-      </Button>
+        <ArrowUp className=" flex justify-center items-center w-6 h-6 text-white" />
+      </button>
     </footer>
   )
 }

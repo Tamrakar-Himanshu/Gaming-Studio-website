@@ -13,6 +13,10 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+
+      screens:{
+        "lg1":"1200px"
+      },
       fontFamily:{
         "header-anton": ['"Anton"', 'sans-serif'], // Define the font
         "secondary-unbounded": ['"Unbounded"', 'sans-serif'], 
@@ -30,6 +34,7 @@ export default {
       },
       boxShadow: {
         'top': '0 -4px 6px rgba(0, 0, 0, 0.1)', // Customize the shadow as needed
+        'top2': '0 -1px 20px #2DF4A1', // Customize the shadow as needed
       },
       backgroundImage:{
         "bg-svg":"url('/bg.png')",
