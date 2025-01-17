@@ -34,7 +34,7 @@ export const Section4 = () => {
   ]
 
   return (
-    <section className='relative bg-bg2 rounded-t-[70px] z-[20]'>
+    <section className='relative bg-bg2 rounded-t-[70px] z-[30]'>
       <div className=' containers '>
         <div className='pt-16 flex items-start'>
           <div className=' flex flex-col space-y-10 w-[40%]'>
