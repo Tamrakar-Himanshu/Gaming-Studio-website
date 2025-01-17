@@ -1,164 +1,95 @@
-import { motion, useInView } from 'framer-motion';
-import { ArrowUp } from 'lucide-react';
-import React, { useRef, useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
+import { Button } from "../../Components/ui/Button";
 
-export const Section5 = () => {
-  const [isOpen, setIsOpen] = useState([false, false, false]); // Track hover states for each link
-  const [currentId, setCurrentId] = useState(0); // Current active link
-  const [imageTransitionKey, setImageTransitionKey] = useState(Date.now()); // Force re-render on image change
-  const experience = ["Unreal Engine & Unity", "Cross-Platform Development", "Innovative Game Mechanics"];
+export function Sectoin1() {
+  const [showVideo, setShowVideo] = useState(false);
+  const [animateText, setAnimateText] = useState(false);
 
-  const sideContent = {
-    '0': {
-      id: "1",
-      img: "https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_img-5.png",
-      text: "Harnessing the power of Unreal Engine and Unity, we deliver photorealistic graphics, dynamic lighting, and seamless gameplay mechanics."
-    },
-    '1': {
-      id: "2",
-      img: "https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h5_img-2.png",
-      text: "Our games are designed to perform on multiple platforms, ensuring accessibility and a wider audience reach."
-    },
-    '2': {
-      id: "3",
-      img: "https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_img-9.png",
-      text: "From AI-driven characters to unique control systems, we innovate to keep gameplay fresh and exciting."
-    },
-  };
-
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
-
-  // Update the image whenever the currentId changes
   useEffect(() => {
-    setImageTransitionKey(Date.now()); // Force re-render to trigger the fade effect
-  }, [currentId]);
+    // Timer for video appearance after 1 second
+    const videoTimer = setTimeout(() => {
+      setShowVideo(true);
+    }, 1200);
 
-  const handleMouseEnter = (id) => {
-    setIsOpen((prev) => {
-      const newState = [...prev];
-      newState[id] = true;
-      return newState;
-    });
+    // Timer for text animation after 1.5 seconds
+    const textTimer = setTimeout(() => {
+      setAnimateText(true);
+    }, 800);
 
-    setCurrentId(id); // Change the current image when hovering
-  };
-
-  const handleMouseLeave = (id) => {
-    setIsOpen((prev) => {
-      const newState = [...prev];
-      newState[id] = false;
-      return newState;
-    });
-  };
+    return () => {
+      clearTimeout(videoTimer);
+      clearTimeout(textTimer);
+    };
+  }, []);
 
   return (
-    <section className='relative bg-bg2 h-[110vh] rounded-t-[70px] z-[30] -mt-10 shadow-top'>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className='containers'
-      >
-        <div className='absolute inset-0 left-60 bg-bg-svg bg-no-repeat z-[-1]'></div>
-        <div className='absolute inset-0 left-[75%] top-40 bg-bg-svg2 z-[-1] bg-no-repeat '></div>
+    <section
+      className="h-[170vh] relative flex items-center overflow-hidden"
+      style={{
+        backgroundImage: showVideo
+          ? "none"
+          : 'url("https://demo2.wpopal.com/gamico/wp-content/uploads/2024/01/h1-bgvideo.jpg")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {showVideo && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover inset-0 z-[-1] transition-opacity duration-1000 ease-in-out"
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
 
-        <div className='flex justify-center pt-32'>
-          <div className='relative z-20'>
-            <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_dino.png" className='' alt="" />
-          </div>
-          <div className='-ml-20'>
-            <h1 className="text-black font-header-anton leading-none relative z-10">
-              <span className="block text-[80px] font-ext text-center rabold uppercase">
-                solid experience <br />of many years
-              </span>
-            </h1>
-          </div>
-        </div>
+      <div className="absolute inset-0 bg-black/30" />
 
-        <div className='flex gap-10 mt-2 items-center w-full'>
-          <div className='w-[61%]'>
-            {experience.map((exp, idx) => (
-              <ExperienceCard
-                key={idx}
-                id={idx}
-                name={exp}
-                isOpen={isOpen[idx]}
-                onEnter={() => handleMouseEnter(idx)}
-                onLeave={() => handleMouseLeave(idx)}
+      <div className="relative containers w-full z-10">
+        <div
+          className={`max-w-3x -mt-6 transition-all duration-1000 ease-in-out ${animateText ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"}`}
+        >
+          <h1 className="text-white font-header-anton leading-none">
+            <span
+              className={`block text-[200px] font-ext rabold transition-all duration-1000 delay-300 ease-in-out ${animateText ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"}`}
+            >
+              WE MAKE
+            </span>
+            <span
+              className={`block text-[200px] -mt-3 transition-all duration-1000 delay-300 ease-in-out ${animateText ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"}`}
+              style={{
+                WebkitTextStroke: "2px white",
+                color: "transparent",
+                filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.3))",
+              }}
+            >
+              <img
+                src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h1_img-1.jpg"
+                className="inline rounded-full -mt-4 mr-4"
+                alt=""
               />
-            ))}
-          </div>
+              GAMES
+            </span>
+          </h1>
 
-          <motion.div
-            ref={ref}
-            className="flex overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+          <p
+            className={`mt-6 font-secondary-unbounded text-[18px] leading-7 text-white max-w-2xl transition-all duration-1000 delay-700 ease-in-out ${animateText ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"}`}
+            style={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}
           >
-            {/* Fade in-out image transition */}
-            <ExperienceAvatar
-              key={imageTransitionKey} // Trigger a re-render on image change
-              imgId={sideContent[currentId].img}
-              text={sideContent[currentId].text}
-            />
-          </motion.div>
+            An award-winning Prague-based indie game studio pushing the
+            boundaries of narrative and serious games
+          </p>
+
+          <div
+            className={`transition-all duration-1000 delay-900 ease-in-out ${animateText ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"}`}
+          >
+            <Button text={"our projects"} className={"mt-14"} href="#" />
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
-};
-
-const ExperienceCard = ({ isOpen, onLeave, onEnter, name, id }) => {
-  return (
-    <div
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
-      className={` ${isOpen ? "text-primary" : ""} transition-all duration-300 font-header-anton text-[52px] flex cursor-pointer`}
-    >
-      {!isOpen && <img src="/src/assets/arrow.svg" width={65} alt="" />}
-      <motion.div
-        initial={{ x: 0 }}
-        animate={{ x: isOpen ? 0 : 30 }} // Adjust -50 to how far left you want it to move
-        transition={{ type: "tween", duration: 0.3 }} // Smooth transition
-        className="flex items-center"
-      >
-        <h1 className='uppercase'>{name}</h1>
-        {isOpen && <ArrowUp size={75} className='transition-all rotate-45 text-primary' />}
-      </motion.div>
-    </div>
-  );
-};
-
-const ExperienceAvatar = ({ imgId, text }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false }); // Animates every time it's in view
-
-  return (
-    <motion.div
-      ref={ref}
-      className="flex items-start"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
-      <motion.div
-        initial={{ opacity: 0 }} // Start with hidden image
-        animate={{ opacity: 1 }}  // Fade-in effect
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <img width={360} src={imgId} alt="" className="rounded-lg" />
-      </motion.div>
-
-      <motion.div
-        className="w-[300px] p-8 text-[14px] leading-6 text-subtle2 font-secondary-unbounded bg-white rounded-2xl -ml-10"
-        initial={{ opacity: 0, x: -30 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <p>{text}</p>
-      </motion.div>
-    </motion.div>
-  );
-};
+}

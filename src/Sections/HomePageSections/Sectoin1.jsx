@@ -1,34 +1,56 @@
- 
-import { ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
-import { Button } from '../../Components/ui/Button'
+import { useEffect, useState } from "react";
+import { Button } from "../../Components/ui/Button";
 import { motion, MotionConfig, useInView } from 'framer-motion'
 import { useRef } from 'react';
 
 export function Sectoin1() {
+  const [showVideo, setShowVideo] = useState(false);
+  const [animateText, setAnimateText] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
+  useEffect(() => {
+    // Timer for video appearance after 1 second
+    const videoTimer = setTimeout(() => {
+      setShowVideo(true);
+    }, 1200);
+
+    // Timer for text animation after 1.5 seconds
+    const textTimer = setTimeout(() => {
+      setAnimateText(true);
+    }, 800);
+
+    return () => {
+      clearTimeout(videoTimer);
+      clearTimeout(textTimer);
+    };
+  }, []);
 
   return (
-    <section 
-    
-      className="  h-[140vh] lg:h-[160vh] lg1:h-[170vh]  relative flex items-center"
+    <section
+      className="h-[170vh] relative flex items-center overflow-hidden"
       style={{
-        backgroundImage: 'url("https://demo2.wpopal.com/gamico/wp-content/uploads/2024/01/h1-bgvideo.jpg")',
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center',
-      }}j
+        backgroundImage: showVideo
+          ? "none"
+          : 'url("https://demo2.wpopal.com/gamico/wp-content/uploads/2024/01/h1-bgvideo.jpg")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
-       {/* <video 
-    autoplay 
-    muted 
-    loop 
-    class="absolute top-0 left-0 w-full h-full object-cover  inset-0 z-[-1] ">
-    <source src="/public/hero.mp4" type="video/mp4"/>
-    Your browser does not support the video tag.
-  </video> */}
+      {showVideo && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover inset-0 z-[-1] transition-opacity duration-500 ease-in-out"
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
+
       <div className="absolute inset-0 bg-black/30" />
-   
+
       <motion.div 
       ref={ref}
       initial={{ opacity: 0, y: 100 }}
@@ -60,6 +82,5 @@ export function Sectoin1() {
         </div>
       </motion.div> 
     </section>
-  )
+  );
 }
-
