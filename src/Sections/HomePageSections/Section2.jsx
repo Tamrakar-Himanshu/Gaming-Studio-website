@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { NextTabButton } from '../../Components/ui/NextTabButton'
 import { motion, useInView } from 'framer-motion'
 import Marquee from "react-fast-marquee";
@@ -10,6 +10,17 @@ export const Section2 = () => {
   const isInView = useInView(ref, { once: false });
   
   const marqueContent = ["game design","art design","multiplatform development","game development"]
+
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const newScale = 0.9 + scrollPosition / 10000; 
+      setScale(newScale < 1 ? 1 : newScale); 
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section className=' relative bg-white rounded-t-[20px] md:rounded-t-[40px] lg:rounded-t-[70px] -mt-48 z-[20]'>
@@ -134,6 +145,10 @@ export const Section2 = () => {
           <div className="absolute right-4 md:-right-4 lg:-right-4">
             <div className=' w-full'>
             <img
+            style={{
+              transform: `scale(${scale})`,
+              transition: "transform 0.2s ease-out",
+            }}
               src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h2_img1.png"
               alt=""
               className=" w-[200px] sm:w-[240px] md:w-[280px] lg:w-[300px] lg1:w-full   "

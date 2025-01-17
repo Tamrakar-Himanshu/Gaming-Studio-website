@@ -1,12 +1,22 @@
 import { ArrowRight } from 'lucide-react'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button } from '../../Components/ui/Button'
 import { motion, useInView } from 'framer-motion'
 
 export const Section3 = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-200px" });
+  const [scale, setScale] = useState(1);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const newScale = 0.9 + scrollPosition / 10000; 
+      setScale(newScale < 1 ? 1 : newScale); 
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <section className=' relative bg-white rounded-t-[20px] md:rounded-t-[40px] lg:rounded-t-[70px]  border-black bo rder shadow-top z-[20]'>
       <motion.div
@@ -58,7 +68,12 @@ export const Section3 = () => {
           {/* right part */} 
           <div className=' relative flex  flex-shrink-0 justify-center md:w-[80%] lg:w-[60%] lg1:w-[60%] items-center lg:mt-0 lg1:mt-0 md:mt-0 mt-14 '>
             <div>
-              <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_img-9.png" className=' max-w-[400px] md:max-w-full' alt="" />
+              <img
+               style={{
+                transform: `scale(${scale})`,
+                transition: "transform 0.2s ease-out",
+              }}
+              src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_img-9.png" className=' max-w-[400px] md:max-w-full' alt="" />
             </div>
             <div className='  overflow-x-clip absolute inset-0 top-0 left-0 right-0'>
               <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_deco.png" alt="" className='rotating'
