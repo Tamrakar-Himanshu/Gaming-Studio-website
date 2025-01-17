@@ -3,7 +3,7 @@ import { Button } from '../../Components/ui/Button'
 
 export const Section6 = () => {
   return (
-    <section className='relative bg-bg3 h-[110vh] rounded-t-[70px] z-[30] -mt-10 shadow-top pt-32'> 
+    <section className='relative bg-bg3  rounded-t-[70px] z-[30] -mt-10 shadow-top pt-32'> 
     <div className=' containers'>
       <div className=' flex items-end gap-40'>
       <div className=' flex justify-start items-start'>

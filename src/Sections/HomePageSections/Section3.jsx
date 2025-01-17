@@ -37,7 +37,7 @@ export const Section3 = () => {
           <div>
               <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_img-9.png" alt="" />
           </div>
-          <div className=' overflow-hidden absolute inset-0 top-0 left-0 right-0'>
+          <div className='  overflow-x-clip absolute inset-0 top-0 left-0 right-0'>
               <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_deco.png" alt="" className='rotating'
               />
             </div>
