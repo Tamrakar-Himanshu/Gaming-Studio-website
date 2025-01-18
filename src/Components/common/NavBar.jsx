@@ -15,23 +15,24 @@ export const NavBar = () => {
 
   return (
     <nav className="containers font-secondary-unbounded absolute top-12 left-0 right-0 z-50 px-6 py-4">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center lg:justify-between justify-center">
         <button
-          className="lg:hidden text-white hover:text-green-500"
+          className="lg:hidden absolute left-5 text-white hover:text-green-500"
           onClick={toggleMobileMenu}
         >
           <Menu size={28} />
         </button>
-
-        <Link to="/" className="flex items-center justify-center">
+ {/* <div className="  justify-center flex"> */}
+        <Link to="/" className="flex w-full items-center lg:justify-start justify-center">
           <img
             src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/logo-white.svg"
             alt="Logo"
             className="h-10"
           />
         </Link>
+ {/* </div> */}
 
-        <div className="flex items-center space-x-4 text-white">
+        <div className=" hidden sm:flex  items-center space-x-4 text-white">
           <button className="hover:text-green-500">
             <User className="h-6 w-6" />
           </button>
