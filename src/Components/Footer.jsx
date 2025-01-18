@@ -121,6 +121,7 @@ export default function Footer() {
           <hr className="border-[3px]" />
         </div>
 
+
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm md:mt-0 mt-5">
