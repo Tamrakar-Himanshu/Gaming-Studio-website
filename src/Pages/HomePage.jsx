@@ -6,7 +6,7 @@ import { Section4 } from "../Sections/HomePageSections/Section4";
 import { Section5 } from "../Sections/HomePageSections/Section5";
 import Footer from "../Components/Footer";
 import { Section6 } from "../Sections/HomePageSections/Section6";
-import { NavBar } from "../Components/common/Navbar";
+import { NavBar } from "../Components/common/Navbar.jsx";
 
 export const HomePage = () => {
   return (
