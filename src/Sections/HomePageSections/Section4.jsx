@@ -39,7 +39,9 @@ export const Section4 = () => {
   ]
 
   return (
-    <section className='relative bg-bg2 rounded-t-[20px] md:rounded-t-[40px] lg:rounded-t-[70px]  pb-20 z-[30]'>
+    <section
+    id='services'
+    className='relative bg-bg2 rounded-t-[20px] md:rounded-t-[40px] lg:rounded-t-[70px]  pb-20 z-[20]'>
       <motion.div
        ref={ref}
        initial={"hidden"}
@@ -79,7 +81,7 @@ export const Section4 = () => {
             </div>
             <div className=' font-secondary-unbounded mt-14 space-y-8 flex justify-end'>
               <div className=' '>
-              <p className=' text-[18px] text-center items-end md:text-end flex font-mid leading-8 pl-10 max-w-2xl '>Games are a language of storytelling. We’re looking for games that develop and expand this language.</p>
+              <p className=' text-[18px] text-center items-end md:text-end flex font-mid leading-8 sm:pl-10 max-w-2xl '>Games are a language of storytelling. We’re looking for games that develop and expand this language.</p>
               </div>
             </div>
               <div className=' w-full flex justify-center md:justify-end mt-7 '>

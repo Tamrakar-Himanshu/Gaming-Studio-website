@@ -18,7 +18,9 @@ export const Section3 = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <section className=' relative bg-white rounded-t-[20px] md:rounded-t-[40px] lg:rounded-t-[70px]  border-black bo rder shadow-top z-[20]'>
+    <div
+    id='vision'
+    className=' relative bg-white rounded-t-[20px] md:rounded-t-[40px] lg:rounded-t-[70px]  border-black bo rder shadow-top z-[20]'>
       <motion.div
         ref={ref}
         initial={"hidden"}
@@ -101,6 +103,6 @@ export const Section3 = () => {
           </div>
         </div>
       </motion.div>
-    </section>
+    </div>
   )
 }

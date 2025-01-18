@@ -47,24 +47,26 @@ export const NavBar = () => {
 
       {/* Desktop Navigation */}
       <div className="hidden lg:flex items-center justify-center space-x-8 text-white text-[12px] font-semibold m-[-24px] pl-8">
-        <Link to="#" className="flex items-center hover:text-green-500">
-          HOME <ChevronDown className="ml-1 h-4 w-4" />
+        <Link to="#home" className="flex items-center hover:text-green-500">
+          HOME  
+          {/* <ChevronDown className="ml-1 h-4 w-4" /> */}
         </Link>
-        <Link to="#" className="hover:text-green-500">
+        <Link to="#about" className="hover:text-green-500">
           ABOUT US
         </Link>
-        <Link to="#" className="hover:text-green-500">
+        <Link to="#services" className="hover:text-green-500">
           SERVICES
         </Link>
-        <Link to="#" className="flex items-center hover:text-green-500">
-          PROJECTS <ChevronDown className="ml-1 h-4 w-4" />
+        <Link to="#vision" className="flex items-center hover:text-green-500">
+          PROJECTS 
+          {/* <ChevronDown className="ml-1 h-4 w-4" /> */}
         </Link>
-        <Link to="#" className="flex items-center hover:text-green-500">
+        {/* <Link to="#" className="flex items-center hover:text-green-500">
           BLOGS <ChevronDown className="ml-1 h-4 w-4" />
-        </Link>
-        <Link to="#" className="flex items-center hover:text-green-500">
+        </Link> */}
+        {/* <Link to="#" className="flex items-center hover:text-green-500">
           PAGES <ChevronDown className="ml-1 h-4 w-4" />
-        </Link>
+        </Link> */}
       </div>
 
       {/* Mobile Navigation */}
@@ -96,49 +98,49 @@ export const NavBar = () => {
           </div>
 
           {/* Mobile Navigation Links */}
-          <div className="flex flex-col items-start justify-center h-full space-y-6 px-15 py-30 pb-[600px] text-black">
+          <div className="flex flex-col items-start justify-center h-full space-y-6 px-15 py-30 pb-[600px] text-black mt-32">
             <Link
-              to="#"
+              to="#home"
               className="text-green-500 text-sm"
               onClick={toggleMobileMenu}
             >
               HOME
             </Link>
             <Link
-              to="#"
+              to="#about"
               className="hover:text-green-500 text-sm font-semibold"
               onClick={toggleMobileMenu}
             >
               ABOUT US
             </Link>
             <Link
-              to="#"
+              to="#services"
               className="hover:text-green-500 text-sm font-semibold"
               onClick={toggleMobileMenu}
             >
               SERVICES
             </Link>
             <Link
-              to="#"
+              to="#vision"
               className="hover:text-green-500 text-sm font-semibold"
               onClick={toggleMobileMenu}
             >
               PROJECTS
             </Link>
-            <Link
+            {/* <Link
               to="#"
               className="hover:text-green-500 text-sm font-semibold"
               onClick={toggleMobileMenu}
             >
               BLOGS
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               to="#"
               className="hover:text-green-500 text-sm font-semibold"
               onClick={toggleMobileMenu}
             >
               PAGES
-            </Link>
+            </Link> */}
           </div>
         </div>
       )}</div>

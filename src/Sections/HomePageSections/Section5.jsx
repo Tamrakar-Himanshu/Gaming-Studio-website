@@ -53,8 +53,8 @@ export const Section5 = () => {
   };
 
   return (
-    <section className='relative bg-bg2 md:h-[110vh] rounded-t-[70px] z-[30] -mt-10 shadow-top'>
-      <div className='absolute inset-0 left-60 bg-bg-svg bg-no-repeat z-[-1]'></div>
+    <section className='relative bg-bg2 lg:h-[130vh] rounded-t-[20px]  md:rounded-t-[40px] lg:rounded-t-[70px] z-[30] - mt-10 shadow-top'>
+      <div className='absolute inset-0 md:scale-100 md:left-60 bg-bg-svg bg-no-repeat z-[-1]'></div>
       <div className='absolute inset-0 left-[75%] top-40 bg-bg-svg2 z-[-1] bg-no-repeat '></div>
       <motion.div
        ref={ref}
@@ -75,7 +75,7 @@ export const Section5 = () => {
         className='containers'
       >
 
-        <div className='flex justify-center pt-14 lg:pt-20 lg1:pt-32'>
+        <div className='flex justify-center pt-20 lg:pt-20 lg1:pt-32'>
           <div className='relative z-20'>
             <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_dino.png" className=' w-1/2 md:w-full ' alt="" />
           </div>

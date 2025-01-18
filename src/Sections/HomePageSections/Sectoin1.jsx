@@ -27,6 +27,7 @@ export function Sectoin1() {
 
   return (
     <section
+      id="home"
       className=" h-[140vh] md:h-[140vh] lg:h-[170vh] relative flex items-center overflow-hidden"
       style={{
         backgroundImage: showVideo
@@ -68,7 +69,7 @@ export function Sectoin1() {
               color: 'transparent',
               filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))'
             }}>
-              <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h1_img-1.jpg" className=' w-[130px] md:w-[150px] lg:w-[240px] lg1:w-fit inline  rounded-full -mt-4 mr-4 transition-all duration-300' alt="" />
+              <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h1_img-1.jpg" className=' w-[130px] md:w-[150px] lg:w-[240px] lg1:w-fit inline  rounded-full lg:-mt-4 mr-4 transition-all duration-300' alt="" />
               GAMES
             </span>
           </h1>

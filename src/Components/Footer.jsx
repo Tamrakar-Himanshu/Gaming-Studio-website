@@ -31,7 +31,7 @@ export default function Footer() {
   }, [controls]);
 
   return (
-    <footer className="bg-bg3 -mt-20 shadow-top2 z-50 rounded-t-[70px] text-subtle2 font-secondary-unbounded pt-20 relative">
+    <footer className="bg-bg3 -mt-20 shadow-top2 z-50 rounded-t-[20px]  md:rounded-t-[40px] lg:rounded-t-[70px] text-subtle2 font-secondary-unbounded pt-20 relative">
       <motion.div
        ref={ref}
        initial={"hidden"}

@@ -23,7 +23,9 @@ export const Section2 = () => {
   }, []);
 
   return (
-    <section className=' relative bg-white rounded-t-[20px] md:rounded-t-[40px] lg:rounded-t-[70px] -mt-48 z-[20]'>
+    <section 
+    id='about'
+    className=' relative bg-white rounded-t-[20px] md:rounded-t-[40px] lg:rounded-t-[70px] -mt-48 z-[20]'>
         <motion.div
           ref={ref}
           initial={"hidden"}
