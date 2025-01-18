@@ -27,7 +27,7 @@ export function Sectoin1() {
 
   return (
     <section
-      className="h-[170vh] relative flex items-center overflow-hidden"
+      className=" h-[140vh] md:h-[140vh] lg:h-[170vh] relative flex items-center overflow-hidden"
       style={{
         backgroundImage: showVideo
           ? "none"
@@ -57,7 +57,7 @@ export function Sectoin1() {
       animate={isInView?{ opacity: 1, y: 0 }:{}}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="relative containers w-full  z-10">
-        <div className="max-w-3x -mt-32 lg:-mt-32 lg1:-mt-6  l">
+        <div className="max-w-3x mt-10 sm:-mt-1  2 lg:-mt-32 lg1:-mt-6  l">
           <h1 className="text-white text-[68px] md:text-[100px] lg:text-[140px] lg1:text-[200px] font-header-anton  leading-none">
             <span className="blockfont-ext rabold "  
             >
