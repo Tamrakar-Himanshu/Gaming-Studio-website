@@ -1,54 +1,139 @@
-import {Link} from "react-router-dom" 
-import { ChevronDown, Heart, Menu, ShoppingCart, User } from 'lucide-react'
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ChevronDown, Heart, Menu, ShoppingCart, User, X } from "lucide-react";
 
-export  const NavBar = ()=> {
+export const NavBar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <nav className=" containers font-secondary-unbounded absolute top-12 left-0 right-0 z-50 px -6 py-4">
-      <div className="flex items-center justify-center lg:justify-start">
-      <div className=" lg:hidden  absolute left-5 items-center space-x-4 text-white ">
-            <button className="hover:text-[#2CFFA4]">
-              <Menu size={28}/>
-            </button> 
-          </div>
-        <Link href="/" className="flex items-center">
-          <div className="">
-            <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/logo-white.svg" alt="" />
-          </div> 
+    <nav className="containers font-secondary-unbounded absolute top-12 left-0 right-0 z-50 px-6 py-4">
+      <div className="flex items-center justify-between">
+        <button
+          className="lg:hidden text-white hover:text-green-500"
+          onClick={toggleMobileMenu}
+        >
+          <Menu size={28} />
+        </button>
+
+        <Link to="/" className="flex items-center justify-center">
+          <img
+            src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/logo-white.svg"
+            alt="Logo"
+            className="h-10"
+          />
         </Link>
-        
-        <div className=" hidden lg:flex justify-end lg:w-[63%] lg1:w-[65%] items-center  text-[12px] font-semibold ">
-          <div className="hidden md:flex items-center space-x-8 text-white">
-            <Link href="#" className="flex items-center">
-              HOME <ChevronDown className="ml-1 h-4 w-4" />
-            </Link>
-            <Link href="#" className="hover:text-[#2CFFA4]">ABOUT US</Link>
-            <Link href="#" className="hover:text-[#2CFFA4]">SERVICES</Link>
-            <Link href="#" className="flex items-center">
-              PROJECTS <ChevronDown className="ml-1 h-4 w-4" />
-            </Link>
-            <Link href="#" className="flex items-center">
-              BLOGS <ChevronDown className="ml-1 h-4 w-4" />
-            </Link>
-            <Link href="#" className="flex items-center">
-              PAGES <ChevronDown className="ml-1 h-4 w-4" />
-            </Link>
-          </div>
-          
+
+        <div className="flex items-center space-x-4 text-white">
+          <button className="hover:text-green-500">
+            <User className="h-6 w-6" />
+          </button>
+          <button className="hover:text-green-500">
+            <Heart className="h-6 w-6" />
+          </button>
+          <button className="hover:text-green-500">
+            <ShoppingCart className="h-6 w-6" />
+          </button>
         </div>
-          <div className=" absolute right-5 items-center space-x-4 text-white ">
-            <button className="hover:text-[#2CFFA4]">
-              <User className="h-6 w-6" />
-            </button>
-            <button className="hover:text-[#2CFFA4]">
-              <Heart className="h-6 w-6" />
-            </button>
-            <button className="hover:text-[#2CFFA4]">
-              <ShoppingCart className="h-6 w-6" />
-            </button>
-          </div>
       </div>
+
+      {/* Desktop Navigation */}
+      <div className="hidden lg:flex items-center justify-center space-x-8 text-white text-[12px] font-semibold m-[-24px] pl-8">
+        <Link to="#" className="flex items-center hover:text-green-500">
+          HOME <ChevronDown className="ml-1 h-4 w-4" />
+        </Link>
+        <Link to="#" className="hover:text-green-500">
+          ABOUT US
+        </Link>
+        <Link to="#" className="hover:text-green-500">
+          SERVICES
+        </Link>
+        <Link to="#" className="flex items-center hover:text-green-500">
+          PROJECTS <ChevronDown className="ml-1 h-4 w-4" />
+        </Link>
+        <Link to="#" className="flex items-center hover:text-green-500">
+          BLOGS <ChevronDown className="ml-1 h-4 w-4" />
+        </Link>
+        <Link to="#" className="flex items-center hover:text-green-500">
+          PAGES <ChevronDown className="ml-1 h-4 w-4" />
+        </Link>
+      </div>
+
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-50 flex">
+          <div className="w-[410px] h-full bg-white text-black py-8 px-6 relative transition-transform duration-500 ease-in-out transform translate-x-0">
+            <button
+              className="absolute top-5 right-5 text-black hover:text-green-500"
+              onClick={toggleMobileMenu}
+            >
+              <X size={28} />
+            </button>
+
+            <div className="flex justify-center mb-10">
+              <img
+                src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/logo.svg"
+                alt="Menu Logo"
+                className="h-auto w-auto"
+              />
+            </div>
+
+            {/* Mobile Navigation Links */}
+            <div className="flex flex-col items-start justify-center h-full space-y-6 px-15 py-30 pb-[600px] text-black">
+              <Link
+                to="#"
+                className="text-green-500 text-sm"
+                onClick={toggleMobileMenu}
+              >
+                HOME
+              </Link>
+              <Link
+                to="#"
+                className="hover:text-green-500 text-sm font-semibold"
+                onClick={toggleMobileMenu}
+              >
+                ABOUT US
+              </Link>
+              <Link
+                to="#"
+                className="hover:text-green-500 text-sm font-semibold"
+                onClick={toggleMobileMenu}
+              >
+                SERVICES
+              </Link>
+              <Link
+                to="#"
+                className="hover:text-green-500 text-sm font-semibold"
+                onClick={toggleMobileMenu}
+              >
+                PROJECTS
+              </Link>
+              <Link
+                to="#"
+                className="hover:text-green-500 text-sm font-semibold"
+                onClick={toggleMobileMenu}
+              >
+                BLOGS
+              </Link>
+              <Link
+                to="#"
+                className="hover:text-green-500 text-sm font-semibold"
+                onClick={toggleMobileMenu}
+              >
+                PAGES
+              </Link>
+            </div>
+          </div>
+
+          <div onClick={toggleMobileMenu}></div>
+        </div>
+      )}
     </nav>
-  )
-}
-
-
+  );
+};
