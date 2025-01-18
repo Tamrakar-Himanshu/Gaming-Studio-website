@@ -10,8 +10,6 @@
     transform: rotate(360deg);
   }
 }
-
-html, body {
-  overflow-y: hidden!important; 
-  overflow-x: hidden!important;  
+.page{
+  overflow: hidden;
 }
