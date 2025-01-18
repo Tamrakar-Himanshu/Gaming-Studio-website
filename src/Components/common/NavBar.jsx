@@ -77,7 +77,8 @@ export const NavBar = () => {
         onClick={toggleMobileMenu}
       >{isMobileMenuOpen && (
         <div
-          className={`w-[410px] h-full bg-white text-black py-8 px-6 relative `}
+ 
+          className={`w-[390px] h-full bg-white text-black py-8 px-6 relative `} 
         >
           <button
             className="absolute top-5 right-5 text-black hover:text-green-500"
