@@ -39,7 +39,7 @@ export const Section4 = () => {
   ]
 
   return (
-    <section className='relative bg-bg2 rounded-t-[70px] z-[30]'>
+    <section className='relative bg-bg2 rounded-t-[20px] md:rounded-t-[40px] lg:rounded-t-[70px]  pb-20 z-[30]'>
       <motion.div
        ref={ref}
        initial={"hidden"}
@@ -57,19 +57,18 @@ export const Section4 = () => {
          },
        }}
       className=' containers '>
-        <div className='pt-16 flex items-start'>
-          <div className=' flex flex-col space-y-10 w-[40%]'>
-            {capabilities.map((capability)=> <CapabilitiesCard {...capability} /> )} 
- 
+        <div className=' pt-16 flex flex-col-reverse items-center md:items-start justify-center md:flex-row md:justify-between'>
+          <div className=' flex flex-col justify-center items-center space-y-10  md:max-w-xl max-w-sm  md:w-[40%] md:mt-0 mt-14'>
+            {capabilities.map((capability)=> <CapabilitiesCard {...capability} /> )}  
           </div>
-          <div className=' sticky top-52 mt-32 flex flex-col justify-end items-end w-[60.66%] '>
+          <div className=' md:sticky top-60 lg:top-60 lg1:top-36 mt-0 md:mt-32 flex flex-col justify-center md:justify-end md:items-end md:w-[60.66%] '>
             <div className=' flex items-center justify-center'>
-              <h1 className="text-black  font-header-anton  leading-none relative z-10 ">
-                <span className="block text-[140px] text-end font-ext rabold uppercase "
+              <h1 className="text-black text-[56px] md:text-[80px] lg:text-[100px] lg1:text-[140px] font-header-anton  leading-none relative z-10 ">
+                <span className="block text-center md:text-end font-ext rabold uppercase "
                 >
                   OUR
                 </span>
-                <span className="block text-[140px] uppercase -mt-2 " style={{
+                <span className="block uppercase lg:-mt-2 " style={{
                   WebkitTextStroke: '2px black',
                   color: 'transparent',
                   // filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))'
@@ -80,10 +79,10 @@ export const Section4 = () => {
             </div>
             <div className=' font-secondary-unbounded mt-14 space-y-8 flex justify-end'>
               <div className=' '>
-              <p className=' text-[18px] items-end text-end flex font-mid leading-8 pl-10 max-w-2xl '>Games are a language of storytelling. We’re looking for games that develop and expand this language.</p>
+              <p className=' text-[18px] text-center items-end md:text-end flex font-mid leading-8 pl-10 max-w-2xl '>Games are a language of storytelling. We’re looking for games that develop and expand this language.</p>
               </div>
             </div>
-              <div className=' w-full flex justify-end mt-7 '>
+              <div className=' w-full flex justify-center md:justify-end mt-7 '>
                 <Button href={"#"} text={"what we offer"} className={" bg-white "} />
               </div>
           </div>
@@ -94,16 +93,18 @@ export const Section4 = () => {
 }
 
 const CapabilitiesCard = ({svg, href, name, desc}) => {
-  return <div className=' flex flex-col items-cen ter'>
-    <div className=' flex gap-7 items-start'>
-      <div className=' bg-primary rounded-2xl p-4'>
+  return <div className='  flex justify-center flex-col items-center'>
+    <div className=' inline md1:flex gap-7 items-start'>
+      <div className=' flex justify-center md:justify-start'>
+      <div className=' -ml-4 md1:ml-0 flex w-fit bg-primary rounded-2xl scale-75 lg1:scale-100 p-4'>
         {svg}
       </div>
-      <div className=' flex items-center border-t-[5px] w-full border-primary mt-10'>
+      </div>
+      <div className=' flex items-center border-t-[5px] w-full border-primary mt-4 md1:mt-10'>
         <div>
-          <h2 className=' font-header-anton text-[40px] uppercase mt-10  leading-tight'>{name}</h2>
-          <p className=' font-secondary-unbounded text-[14px] text-subtle2 leading-6 mt-3'>{desc}</p>
-          <div className=' mt-10'>
+          <h2 className=' font-header-anton text-[32px] lg1:text-[40px] uppercase mt-5 md1:mt-10 text-center md:text-start leading-tight'>{name}</h2>
+          <p className=' font-secondary-unbounded text-center md:text-start text-[14px] text-subtle2 leading-6 mt-3'>{desc}</p>
+          <div className='flex justify-center md:justify-start mt-10'>
             <NextTabButton name={"learn more"} href={href} className={" uppercase"} />
           </div>
         </div>

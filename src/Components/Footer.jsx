@@ -49,13 +49,13 @@ export default function Footer() {
          },
        }}
       className="containers px-4">
-        <div className=" flex flex-wrap gap-20">
+        <div className=" flex justify-between flex-wrap ">
           {/* Company Info */}
-          <div className=" max-w-sm">
+          <div className=" lg:max-w-sm w-full lg:w-[40%] flex flex-col items-center  md:inline justify-center ">
             <a href="/" className="text-2xl font-bold text-white flex items-center gap-2">
              <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/logo_light.svg" alt="" />
             </a>
-            <p className="text-sm leading-relaxed border-b border-subtle pb-5 mt-6">
+            <p className="text-sm leading-relaxed border-b md:text-left text-center border-subtle pb-5 mt-6">
               Qamico is an independent game studio making original games for PC, consoles, and mobile platforms.
             </p>
             <div className="flex items-center -ml-7">
@@ -65,11 +65,11 @@ export default function Footer() {
               </p>
             </div>
           </div>
-
+          <div className=' flex flex-col md:flex-row justify-center md:justify-between items-center  w-full lg:w-[60%]  md:text-left text-center'>
           {/* Say Hello */}
-          <div className="space-y-6">
+          <div className="md:space-y-6 md:mt-0 mt-5 ">
             <h3 className="text-[16px] font-bold text-white">Say Hello</h3>
-            <div className="space-y-3">
+            <div className=" space-y-2 md:space-y-3">
               <p className="text-sm">hello@example.com</p>
               <p className="text-sm text-white">+123 888 000 33</p>
               <p>
@@ -79,28 +79,32 @@ export default function Footer() {
           </div>
 
           {/* Social */}
-          <div className="space-y-6">
+          <div className="md:space-y-6 md:mt-0 mt-5">
             <h3 className="text-[16px] font-bold text-white">Social</h3>
-            <div className="space-y-3">
+            <div className=" space-y-2 md:space-y-3">
               {["facebook","twitter","linkedin","instagram"].map((item)=><Links name={item} />)} 
             </div>
           </div>
 
           {/* Newsletter */}
-          <div className=" max-w-sm">
-            <h3 className=" text-[16px] font-bold text-white">Newsletter</h3>
-            <p className="text-sm mt-6">
+          <div className=' md:mt-0 mt-5'>
+
+          <div className=" flex sm:inline-block justify-center  items-center flex-col  max-w-sm">
+            <h3 className=" text-[16px] font-bold texce text-white">Newsletter</h3>
+            <p className="text-sm mt-2 md:mt-6 ">
               Get notified about updates and be the first to get early access to new episodes.
             </p>
+          </div>
             <div className=" mt-10 flex justify-between border-b border-subtle pb-2">
                <input type="text" className=' outline-none bg-transparent text-[12px]' name="" id="" placeholder='Email address' />
                <NextTabButton name={"subscribe"} className={"uppercase"} />
             </div>
           </div>
+          </div>
         </div>
 
         {/* Divider with Game Controller */}
-        <div className="relative my-12 mt-24">
+        <div className="relative my-12 mt-40 sm:mt-24">
           <motion.div
          className="absolute left-1/2 -translate-x-1/2 -top-20"
          animate={controls}
@@ -111,7 +115,7 @@ export default function Footer() {
             <img
               src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/ft-img.png"
               alt="Game Controller" 
-              className="  object-contain"
+              className=" w-[140px] sm:w-[200px]  object-contain"
             />
           </motion.div>
           <hr className="border-[3px]" />
@@ -119,17 +123,17 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm">
+          <p className="text-sm md:mt-0 mt-5">
             © 2024 <span className="text-emerald-400">Qamico</span>. All rights reserved
           </p>
-          <nav className="flex gap-5">
+          <nav className="flex gap-3 sm:gap-5">
             {['home', 'news', 'projects', 'about', 'contact'].map((item) => (
               <a
                 key={item}
                 href={`/${item}`}
                 className="text-sm hover:text-primary-hover  text-subtle transition-colors"
               >
-                {item}{ item!=="contact" && <span  className=' ml-5'>|</span>}
+                {item}{ item!=="contact" && <span  className=' ml-3 sm:ml-5'>|</span>}
               </a>
             ))}
           </nav>
@@ -139,7 +143,7 @@ export default function Footer() {
       {/* Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className=" fixed flex justify-center items-center bottom-8 right-8 w-16 h-16 rounded-full bg-primary hover:bg-primary-hover text-black"
+        className=" fixed  hidden sm:flex justify-center items-center bottom-8 right-8 w-16 h-16 rounded-full bg-primary hover:bg-primary-hover text-black"
         aria-label="Scroll to top"
       >
         <ArrowUp className=" flex justify-center items-center w-6 h-6 text-white" />

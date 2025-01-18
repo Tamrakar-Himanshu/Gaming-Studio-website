@@ -53,7 +53,7 @@ export const Section5 = () => {
   };
 
   return (
-    <section className='relative bg-bg2 h-[110vh] rounded-t-[70px] z-[30] -mt-10 shadow-top'>
+    <section className='relative bg-bg2 md:h-[110vh] rounded-t-[70px] z-[30] -mt-10 shadow-top'>
       <div className='absolute inset-0 left-60 bg-bg-svg bg-no-repeat z-[-1]'></div>
       <div className='absolute inset-0 left-[75%] top-40 bg-bg-svg2 z-[-1] bg-no-repeat '></div>
       <motion.div
@@ -75,21 +75,21 @@ export const Section5 = () => {
         className='containers'
       >
 
-        <div className='flex justify-center pt-32'>
+        <div className='flex justify-center pt-14 lg:pt-20 lg1:pt-32'>
           <div className='relative z-20'>
-            <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_dino.png" className='' alt="" />
+            <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_dino.png" className=' w-1/2 md:w-full ' alt="" />
           </div>
-          <div className='-ml-20'>
+          <div className=' -ml-40 md:-ml-20'>
             <h1 className="text-black font-header-anton leading-none relative z-10">
-              <span className="block text-[80px] font-ext text-center rabold uppercase">
+              <span className="block text-[40px] sm:text-[54px] lg:text-[68px] lg1:text-[80px] font-ext text-center rabold uppercase">
                 solid experience <br />of many years
               </span>
             </h1>
           </div>
         </div>
 
-        <div className='flex gap-10 mt-2 items-center w-full'>
-          <div className='w-[61%]'>
+        <div className='flex gap-10 mt-20 md:mt-2 items-center w-full'>
+          <div className='  md:w-[61%] space-y-1'>
             {experience.map((exp, idx) => (
               <ExperienceCard
                 key={idx}
@@ -104,7 +104,7 @@ export const Section5 = () => {
 
           <motion.div
             ref={ref}
-            className="flex overflow-hidden"
+            className="  overflow-hidden hidden md:flex "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -127,9 +127,9 @@ const ExperienceCard = ({ isOpen, onLeave, onEnter, name, id }) => {
     <div
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      className={` ${isOpen ? "text-primary" : ""} transition-all duration-300 font-header-anton text-[52px] flex cursor-pointer`}
+      className={` ${isOpen ? "text-primary" : ""} transition-all duration-1000 font-header-anton text-[32px] txt:text-[52px] flex cursor-pointer`}
     >
-      {!isOpen && <img src="/src/assets/arrow.svg" width={65} alt="" />}
+      {!isOpen && <img src="/src/assets/arrow.svg" width={65} className=' txt:w-[65px] w-[45px] transition-all duration-100 ' alt="" />}
       <motion.div
         initial={{ x: 0 }}
         animate={{ x: isOpen ? 0 : 30 }} // Adjust -50 to how far left you want it to move
@@ -137,7 +137,7 @@ const ExperienceCard = ({ isOpen, onLeave, onEnter, name, id }) => {
         className="flex items-center"
       >
         <h1 className='uppercase'>{name}</h1>
-        {isOpen && <ArrowUp size={75} className='transition-all rotate-45 text-primary' />}
+        {isOpen && <ArrowUp size={75} className='transition-all rotate-45 text-primary w-[50px] txt:w-[75px] ' />}
       </motion.div>
     </div>
   );

@@ -3,7 +3,7 @@ import { ChevronDown, Heart, Menu, ShoppingCart, User } from 'lucide-react'
 
 export  const NavBar = ()=> {
   return (
-    <nav className=" containers font-secondary-unbounded absolute top-12 left-0 right-0 z-50 px-6 py-4">
+    <nav className=" containers font-secondary-unbounded absolute top-12 left-0 right-0 z-50 px -6 py-4">
       <div className="flex items-center justify-center lg:justify-start">
       <div className=" lg:hidden  absolute left-5 items-center space-x-4 text-white ">
             <button className="hover:text-[#2CFFA4]">

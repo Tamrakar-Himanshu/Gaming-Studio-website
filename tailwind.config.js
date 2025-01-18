@@ -15,7 +15,9 @@ export default {
     extend: {
 
       screens:{
-        "lg1":"1200px"
+        "lg1":"1200px",
+        "md1":"975px",
+        "txt":"1380px",
       },
       fontFamily:{
         "header-anton": ['"Anton"', 'sans-serif'], // Define the font

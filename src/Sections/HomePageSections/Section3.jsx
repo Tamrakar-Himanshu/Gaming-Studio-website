@@ -66,14 +66,16 @@ export const Section3 = () => {
           </div>
 
           {/* right part */} 
-          <div className=' relative flex  flex-shrink-0 justify-center md:w-[80%] lg:w-[60%] lg1:w-[60%] items-center lg:mt-0 lg1:mt-0 md:mt-0 mt-14 '>
-            <div>
+          <div className=' relative flex justify-center w-[60%] items-center lg:mt-0 lg1:mg-0 md:mt-0 mt-32  '>
+          <div>
               <img
-               style={{
-                transform: `scale(${scale})`,
-                transition: "transform 0.2s ease-out",
-              }}
-              src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_img-9.png" className=' max-w-[400px] md:max-w-full' alt="" />
+                src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_img-9.png"
+                alt=""
+                style={{
+                  transform: `scale(${scale})`,
+                  transition: "transform 0.2s ease-out",
+                }}
+              />
             </div>
             <div className='  overflow-x-clip absolute inset-0 top-0 left-0 right-0'>
               <img src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/h3_deco.png" alt="" className='rotating'
