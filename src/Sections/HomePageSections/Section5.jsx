@@ -129,7 +129,7 @@ const ExperienceCard = ({ isOpen, onLeave, onEnter, name, id }) => {
       onMouseLeave={onLeave}
       className={` ${isOpen ? "text-primary" : ""} transition-all duration-1000 font-header-anton text-[32px] txt:text-[52px] flex cursor-pointer`}
     >
-      {!isOpen && <img src="/src/assets/arrow.svg" width={65} className=' txt:w-[65px] w-[45px] transition-all duration-100 ' alt="" />}
+      {!isOpen && <img src="https://pub-e8df4856c93040158123b7cc75760e95.r2.dev/arrow.svg" width={65} className=' txt:w-[65px] w-[45px] transition-all duration-100 ' alt="" />}
       <motion.div
         initial={{ x: 0 }}
         animate={{ x: isOpen ? 0 : 30 }} // Adjust -50 to how far left you want it to move
