@@ -10,3 +10,7 @@
     transform: rotate(360deg);
   }
 }
+
+body, html {
+  overflow: hidden;
+}
