@@ -66,74 +66,83 @@ export const NavBar = () => {
         </Link>
       </div>
 
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 flex">
-          <div className="w-[410px] h-full bg-white text-black py-8 px-6 relative transition-transform duration-500 ease-in-out transform translate-x-0">
-            <button
-              className="absolute top-5 right-5 text-black hover:text-green-500"
-              onClick={toggleMobileMenu}
-            >
-              <X size={28} />
-            </button>
+      {/* Mobile Navigation */}
+      <div
+        className={`fixed inset-0 z-50 bg-black bg-opacity-50 transition-opacity duration-300 ${
+          isMobileMenuOpen ? "opacity-100" : "opacity-0"
+        }`}
+        style={{
+          pointerEvents: isMobileMenuOpen ? "auto" : "none",
+        }}
+        onClick={toggleMobileMenu}
+      >{isMobileMenuOpen && (
+        <div
+          className={`w-[410px] h-full bg-white text-black py-8 px-6 relative `}
+        >
+          <button
+            className="absolute top-5 right-5 text-black hover:text-green-500"
+            onClick={toggleMobileMenu}
+          >
+            <X size={28} />
+          </button>
 
-            <div className="flex justify-center mb-10">
-              <img
-                src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/logo.svg"
-                alt="Menu Logo"
-                className="h-auto w-auto"
-              />
-            </div>
-
-            {/* Mobile Navigation Links */}
-            <div className="flex flex-col items-start justify-center h-full space-y-6 px-15 py-30 pb-[600px] text-black">
-              <Link
-                to="#"
-                className="text-green-500 text-sm"
-                onClick={toggleMobileMenu}
-              >
-                HOME
-              </Link>
-              <Link
-                to="#"
-                className="hover:text-green-500 text-sm font-semibold"
-                onClick={toggleMobileMenu}
-              >
-                ABOUT US
-              </Link>
-              <Link
-                to="#"
-                className="hover:text-green-500 text-sm font-semibold"
-                onClick={toggleMobileMenu}
-              >
-                SERVICES
-              </Link>
-              <Link
-                to="#"
-                className="hover:text-green-500 text-sm font-semibold"
-                onClick={toggleMobileMenu}
-              >
-                PROJECTS
-              </Link>
-              <Link
-                to="#"
-                className="hover:text-green-500 text-sm font-semibold"
-                onClick={toggleMobileMenu}
-              >
-                BLOGS
-              </Link>
-              <Link
-                to="#"
-                className="hover:text-green-500 text-sm font-semibold"
-                onClick={toggleMobileMenu}
-              >
-                PAGES
-              </Link>
-            </div>
+          <div className="flex justify-center mb-10">
+            <img
+              src="https://demo2.wpopal.com/gamico/wp-content/uploads/2023/12/logo.svg"
+              alt="Menu Logo"
+              className="h-auto w-auto"
+            />
           </div>
 
-          <div onClick={toggleMobileMenu}></div>
+          {/* Mobile Navigation Links */}
+          <div className="flex flex-col items-start justify-center h-full space-y-6 px-15 py-30 pb-[600px] text-black">
+            <Link
+              to="#"
+              className="text-green-500 text-sm"
+              onClick={toggleMobileMenu}
+            >
+              HOME
+            </Link>
+            <Link
+              to="#"
+              className="hover:text-green-500 text-sm font-semibold"
+              onClick={toggleMobileMenu}
+            >
+              ABOUT US
+            </Link>
+            <Link
+              to="#"
+              className="hover:text-green-500 text-sm font-semibold"
+              onClick={toggleMobileMenu}
+            >
+              SERVICES
+            </Link>
+            <Link
+              to="#"
+              className="hover:text-green-500 text-sm font-semibold"
+              onClick={toggleMobileMenu}
+            >
+              PROJECTS
+            </Link>
+            <Link
+              to="#"
+              className="hover:text-green-500 text-sm font-semibold"
+              onClick={toggleMobileMenu}
+            >
+              BLOGS
+            </Link>
+            <Link
+              to="#"
+              className="hover:text-green-500 text-sm font-semibold"
+              onClick={toggleMobileMenu}
+            >
+              PAGES
+            </Link>
+          </div>
         </div>
-      )}
+      )}</div>
+
+      
     </nav>
   );
 };
