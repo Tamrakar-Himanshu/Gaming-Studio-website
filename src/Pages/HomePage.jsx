@@ -1,4 +1,3 @@
-import React from "react";
 import { Sectoin1 } from "../Sections/HomePageSections/Sectoin1"; 
 import { Section2 } from "../Sections/HomePageSections/Section2";
 import { Section3 } from "../Sections/HomePageSections/Section3";
