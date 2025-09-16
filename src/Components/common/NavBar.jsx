@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, Heart, Menu, ShoppingCart, User, X } from "lucide-react";
+import { Heart, Menu, ShoppingCart, User, X } from "lucide-react";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
